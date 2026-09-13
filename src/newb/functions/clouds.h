@@ -109,8 +109,7 @@ float cloudsNoiseVr(vec2 p, float t) {
   return n*n;
 }
 
-vec4 renderClouds(vec2 p, float t, float rain, vec3 horizonCol, vec3 zenithCol, const vec2 scale, const float velocity, const float shadow) {
-  p *= scale;
+vec4 renderClouds(vec2 p, float t, float rain, vec3 horizonCol, vec3 zenithCol, const vec2 scale, const float velocity, const float shadow, const float dayFactor) {
   t *= velocity;
 
   // layer 1
@@ -135,7 +134,9 @@ vec4 renderClouds(vec2 p, float t, float rain, vec3 horizonCol, vec3 zenithCol, 
 
   vec4 col;
   col.a = a + c*(1.0-a);
-  col.rgb = (horizonCol + horizonCol.ggg)*0.85;
+  float dayMask = smoothstep(0.0,0.20,dayFactor);
+  float horizonIntensity = mix(NL_CLOUD3_NIGHT_HORIZON_INTENSITY,NL_CLOUD3_DAY_HORIZON_INTENSITY,dayMask);
+  col.rgb = (horizonCol + horizonCol.ggg)*horizonIntensity;
   col.rgb = mix(col.rgb, 0.5*(zenithCol + zenithCol.ggg), shadow*mix(b, d, c));
   col.rgb *= 1.0-0.7*rain;
 
