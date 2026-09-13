@@ -110,6 +110,7 @@ float cloudsNoiseVr(vec2 p, float t) {
 }
 
 vec4 renderClouds(vec2 p, float t, float rain, vec3 horizonCol, vec3 zenithCol, const vec2 scale, const float velocity, const float shadow, const float dayFactor) {
+  p *= scale;
   t *= velocity;
 
   // layer 1
