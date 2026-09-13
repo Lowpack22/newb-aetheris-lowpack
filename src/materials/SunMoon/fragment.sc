@@ -1,4 +1,4 @@
-$input v_texcoord0
+$input v_texcoord0, v_isSun
 
 #include <bgfx_shader.sh>
 
@@ -17,7 +17,7 @@ void main() {
 
     color.rgb *= SunMoonColor.rgb;
 
-    if (!v_isSun) {
+    if (!v_isSun < 0.5) {
       color.rgb *= 2.4*color.rgb;
     } else {
       color.rgb *= 4.4*color.rgb;
