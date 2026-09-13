@@ -17,7 +17,7 @@ void main() {
 
     color.rgb *= SunMoonColor.rgb;
 
-    if (!v_isSun < 0.5) {
+    if (v_isSun < 0.5) {
       color.rgb *= 2.4*color.rgb;
     } else {
       color.rgb *= 4.4*color.rgb;
