@@ -15,6 +15,7 @@ vec3 sunLightTint(float dayFactor, float rain) {
   dawnFactor *= mix(1.0, dawnFactor*dawnFactor, nightFactor);
   vec3 tint = mix(NL_NOON_SUNLIGHT_COL, NL_NIGHT_MOONLIGHT_COL, nightFactor);
   tint = mix(tint, NL_DAWN_SUNLIGHT_COL, dawnFactor);
+  tint *= mix(1.0, NL_MOONLIGHT_INTENSITY, nightFactor);
   tint = mix(tint, vec3_splat(dot(tint, vec3_splat(0.33))), rain);
   return tint;
 }
