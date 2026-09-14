@@ -62,8 +62,8 @@
 
 /* Fog */
 #define NL_FOG 1.0                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
-#define NL_MIST_DENSITY 0.65       // 0.0 no mist ~ 1.0 misty
-#define NL_RAIN_MIST_OPACITY 0.35 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
+#define NL_MIST_DENSITY 0.4       // 0.0 no mist ~ 1.0 misty
+#define NL_RAIN_MIST_OPACITY 0.25 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 #define NL_CLOUDY_FOG 0.2         // [toggle] 0.0 subtle - 0.8 dense fog clouds
 
 /* Sky */
@@ -109,15 +109,15 @@
 #define NL_GLOW_LEAK 0.6          // [toggle] 0.08 subtle ~ 1.0 100% brightness of NL_GLOW_TEX
 
 /* Waving */
-#define NL_PLANTS_WAVE 0.05    // [toggle] 0.02 gentle ~ 0.4 violent
-#define NL_LANTERN_WAVE 0.16   // [toggle] 0.05 subtle ~ 0.4 large swing
+#define NL_PLANTS_WAVE 0.03    // [toggle] 0.02 gentle ~ 0.4 violent
+#define NL_LANTERN_WAVE 0.14   // [toggle] 0.05 subtle ~ 0.4 large swing
 #define NL_WAVE_SPEED 2.6      // 0.5 slow wave ~ 5.0 very fast wave
 //#define NL_EXTRA_PLANTS_WAVE // [toggle] !dont use! wave using texture coords (1.21.0 vanilla 2048x1024)
-#define NL_WAVE_RANGE 16.0     // 6.0 upto 6 blocks ~ 32.0 upto 32 blocks away (slower)
+#define NL_WAVE_RANGE 12.0     // 6.0 upto 6 blocks ~ 32.0 upto 32 blocks away (slower)
 
 /* Water */
 #define NL_WATER_TRANSPARENCY 0.9 // 0.0 transparent ~ 1.0 normal
-#define NL_WATER_BUMP 0.2         // 0.001 plain ~ 0.2 bumpy water
+#define NL_WATER_BUMP 0.12         // 0.001 plain ~ 0.2 bumpy water
 #define NL_WATER_WAVE_SPEED  0.2  // 0.2 calm ~ 2.0 turbulent
 #define NL_WATER_TEX_OPACITY 0.0  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
@@ -132,12 +132,12 @@
 #define NL_UNDERWATER_TINT vec3(0.0,0.21,0.46) // fog tint color when underwater
 
 /* Cloud type */
-#define NL_CLOUD_TYPE 3 // 0:vanilla, 1:soft, 2:rounded, 3:realistic
+#define NL_CLOUD_TYPE 0 // 0:vanilla, 1:soft, 2:rounded, 3:realistic
 
 /* Vanilla cloud settings - make sure to remove clouds.png when using this */
 #define NL_CLOUD0_THICKNESS 2.1        // 0.5 slim ~ 8.0 fat
 #define NL_CLOUD0_RAIN_THICKNESS 4.0   // 0.5 slim ~ 8.0 fat
-#define NL_CLOUD0_OPACITY 0.9          // 0.0 invisible ~ 1.0 opaque
+#define NL_CLOUD0_OPACITY 0.5          // 0.0 invisible ~ 1.0 opaque
 //#define NL_CLOUD0_MULTILAYER         // [toggle] extra cloud layer
 
 /* Soft cloud settings */
@@ -183,7 +183,7 @@
 //#define NL_CLOUD_AURORA_REFLECTION // [toggle] simple clouds/aurora reflection
 
 /* Chunk loading slide in animation */
-#define NL_CHUNK_LOAD_ANIM 100.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
+//#define NL_CHUNK_LOAD_ANIM 100.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
 
 /* Sun/Moon */
 #define NL_SUN_SIZE  3.2           // 0.3 tiny ~ 4.0 massive
@@ -196,12 +196,12 @@
 #define NL_MOON_TILT       0.0    // 0.0 no tilt ~ 90.0 tilt of 90 degrees
 
 /* Fake godrays during sunrise/sunset */
-#define NL_GODRAY 1.1 // [toggle] 0.1 subtle ~ 0.8 strong
+#define NL_GODRAY 0.8  // [toggle] 0.1 subtle ~ 0.8 strong
 
 /* Sky reflection */
 //#define NL_GROUND_REFL 0.4       // [toggle] 0.2 slightly reflective ~ 1.0 fully reflect sky
-#define NL_GROUND_RAIN_WETNESS 1.0 // 0.0 no wetness ~ 1.0 fully wet blocks when raining
-#define NL_GROUND_RAIN_PUDDLES 0.8 // 0.0 no puddles ~ 1.0 puddles
+#define NL_GROUND_RAIN_WETNESS 0.8// 0.0 no wetness ~ 1.0 fully wet blocks when raining
+#define NL_GROUND_RAIN_PUDDLES 0.5 // 0.0 no puddles ~ 1.0 puddles
 
 /* Entity (Actor, ItemInHand) */
 #define NL_ENTITY_BRIGHTNESS     0.1   // 0.1 dark ~ 1.6 bright
@@ -214,7 +214,7 @@
 
 /* Lava effects */
 //#define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
-//#define NL_LAVA_NOISE_BUMP 0.2   // [toggle] 0.1 subtle ~ 0.8 massive waves
+#define NL_LAVA_NOISE_BUMP 0.2   // [toggle] 0.1 subtle ~ 0.8 massive waves
 #define NL_LAVA_NOISE_SPEED 0.18  // 0.0 still ~ 0.8 fast
 
 #endif
