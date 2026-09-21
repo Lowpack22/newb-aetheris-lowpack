@@ -221,8 +221,8 @@ vec3 renderEndNebula(vec3 viewDir,float t) {
     vec3 warped = p;
     warped += vec3(warpA-0.5,warpB-0.5,warpA+warpB-1.0)*0.72;
 
-    float cloudLarge = fbm3(warped*0.72);
-    float cloudMedium = fbm3(warped*1.45+vec3(12.7,6.3,19.4));
+    float cloudLarge = noise3(warped*0.72);
+    float cloudMedium = noise3(warped*1.45+vec3(12.7,6.3,19.4));
 
     float cloudShape = cloudLarge*0.68+cloudMedium*0.32;
 
