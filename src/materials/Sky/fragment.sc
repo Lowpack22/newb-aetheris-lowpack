@@ -62,7 +62,7 @@ vec3 GetAurora(vec3 viewDir, vec4 ViewPositionAndTime, float dither) {
                 pow2(pow2(currentM)));
     }
 
-    aurora *= 0.22;
+    aurora *= 0.30;
     return aurora * visibility / float(sampleCount);
 }
 
