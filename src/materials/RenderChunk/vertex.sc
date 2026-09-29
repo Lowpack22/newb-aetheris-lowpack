@@ -2,7 +2,7 @@ $input a_color0, a_position, a_texcoord0, a_texcoord1
 #ifdef INSTANCING
   $input i_data0, i_data1, i_data2, i_data3
 #endif
-$output v_color0, v_color1, v_fog, v_refl, v_texcoord0, v_lightmapUV, v_position, v_extra, v_cpos, v_wpos
+$output v_color0, v_color1, v_fog, v_refl, v_texcoord0, v_lightmapUV, v_position, v_extra, v_cpos, v_wpos, v_shadowData
 
 #include <bgfx_shader.sh>
 #include <newb/main.sh>
@@ -13,6 +13,7 @@ uniform vec4 ViewPositionAndTime;
 uniform vec4 FogColor;
 uniform vec4 TimeOfDay;
 uniform vec4 CameraPosition;
+uniform vec4 LastCameraPosition;
 
 SAMPLER2D_AUTOREG(s_MatTexture);
 SAMPLER2D_AUTOREG(s_LightMapTexture);
@@ -197,6 +198,8 @@ void main() {
   v_position = gPos;
   v_cpos = a_position.xyz;
   v_wpos = worldPos;
+  vec3 cameraDelta = CameraPosition.xyz - LastCameraPosition.xyz;
+  v_shadowData = vec2(ViewPositionAndTime.w, length(cameraDelta.xz));
 
   #else
 
